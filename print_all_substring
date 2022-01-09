@@ -1,0 +1,18 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+	char str[100];
+	gets(str);
+	int i,j,k;
+	int len=strlen(str);
+	for(int i=0;i<len;i++){
+		for(int j=i+1;j<len;j++){
+			for(int k=i;k<=j;k++){
+				printf("%c",str[k]);               //print all substring
+			}
+		printf("\n");
+		}	
+	}
+
+	return 0;
+}
