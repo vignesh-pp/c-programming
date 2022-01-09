@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main(){
+	int n,flag=0;;
+	char c;
+	while(scanf("%c%d",&c,&n)==2){
+		while(n--){
+			printf("%c",c);
+			flag=1;
+		}
+	}
+	if(flag==0)
+	printf("error");
+	return 0;
+}
