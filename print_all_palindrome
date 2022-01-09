@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<string.h>
+int lens=0;
+char palindromic[100];
+void palindrome(char* str,int s,int e){
+	int flag=0;
+	for(int i=s,j=e;i<=(s+e)/2;i++,j--){
+		if(str[i]==str[j]){
+			flag=1;
+		}
+		else
+		{
+			flag=0;
+			break;
+		}
+	}
+   if(flag==1){           
+   	    for(int i=s;i<=e;i++){
+   	    	printf("%c",str[i]);        
+	 }
+	 printf("\n");
+
+   }
+}
+
+int main(){
+	char str[100];
+	gets(str);
+	int i,j,k;
+	int len=strlen(str);
+	for(int i=0;i<len;i++){
+		for(int j=i+1;j<len;j++){
+			palindrome(str,i,j);
+//			for(int k=i;k<=j;k++){
+//				printf("%c",str[k]);               //print all substring
+//			}
+//		printf("\n");
+		}	
+	}
+	return 0;
+}
