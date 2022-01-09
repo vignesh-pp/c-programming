@@ -1,0 +1,36 @@
+//#include<stdio.h>
+//int main(){
+//	int n,r,s=0;
+//	scanf("%d",&n);
+//	int t=n;
+//	while(n>0){
+//		r=n%10;
+//		s=s*10+r;
+//		n=n/10;
+//	}
+//	if(s==t)
+//	printf("palindrome");
+//	else
+//	printf("not a palindrome");
+//	return 0;
+//}
+
+//upto
+#include<stdio.h>
+int main(){
+	int n,num,r=0,i,l,s=0;
+	scanf("%d",&l);
+	for(int num=1;num<=l;num++)
+	{	
+		s=0;
+		n=num;
+		while(n>0){
+		r=n%10;
+		s=s*10+r;
+		n=n/10;
+	}
+	if(s==num)
+	printf("%d ",num);
+	}
+	return 0;
+}
