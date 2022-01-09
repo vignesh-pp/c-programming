@@ -1,0 +1,13 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int n;
+	printf("enter year : ");
+	scanf("%d",&n);
+	if((n%4==0) && (n%400==0) || (n%100!=0))
+	{
+		printf("LEAP YEAR");
+	}
+	else printf("NON LEAP YEAR");
+	return 0;
+}
