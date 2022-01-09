@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+	int n1,n2;
+	scanf("%d",&n1,&n2);
+	
+	char s1[100];
+	gets(s1);
+	char s2[100];
+	gets(s2);
+	
+	if(strlen(s1)!=strlen(s2)){
+		printf("not a rotation");
+	}
+	else{
+		strcat(s1,s1);
+		if(strstr(s1,s2)!=NULL)
+		printf("is rotation");
+		else
+			printf("s rotation");
+	}
+	return 0;
+}
