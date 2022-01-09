@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<string.h>
+int len=0,flag;
+char palindromic[100];
+void isPalindromeOrNot(char* str,int start,int end){
+   for(int i=start,j=end;i<=(start+end)/2;i++,j--){
+   	   if(str[i]==str[j]){
+   	   	flag=1;
+	  }
+	  else {
+	  	  flag=0;
+	  	  break;
+	  }
+   }
+   if(flag==1 && len < (end-start)+1){
+   	  int temp=0;
+   	  int index1=0;
+   	    for(int i=start;i<=end;i++){
+   	    	palindromic[index1++]=str[i];
+   	    	temp++;
+	 }
+	 len=temp;
+   }
+}
+
+int main(){
+	char str[100];
+	gets(str);	
+	for(int i=0;i<strlen(str);i++){
+		for(int j=i+1;j<strlen(str);j++){
+			isPalindromeOrNot(str,i,j);
+		}
+	}
+	printf("%s",palindromic);
+	return 0;
+}
