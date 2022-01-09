@@ -1,0 +1,10 @@
+//tables upto limit
+#include<stdio.h>
+int main(){
+	int i,l=10,n;
+	scanf("%d",&n);
+	for(int i=1;i<=l;i++){
+		printf("%d*%d=%d\n",i,i,i*n);
+	}
+	return 0;
+}
