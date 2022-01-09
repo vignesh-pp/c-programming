@@ -1,0 +1,15 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+	char str[100];
+	scanf("%s",str);
+	char s[100];
+	scanf("%s",s);
+	char *ptr;
+	ptr=strstr(str,s);
+	if(ptr!=NULL)
+	printf("%s contains %s starting from index %d",str,s,ptr-str);
+	else 
+	printf("-1");
+	return 0;
+}
