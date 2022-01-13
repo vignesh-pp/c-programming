@@ -1,0 +1,212 @@
+//zoho1
+#include<stdio.h>
+#include<math.h>
+int main(){
+	int n,i,j,sum=0,array_sum[10],squareroot_value;
+	printf("Enter the numbers : ");
+	scanf("%d",&n);
+	int arr[10];
+	printf("Enter the array elements : ");
+	for(int i=0;i<n;i++)
+	scanf("%d",&arr[i]);
+	
+	for(int i=0;i<n;i++){
+	    squareroot_value = sqrt(arr[i]);
+		if((squareroot_value*squareroot_value)==arr[i])
+		{
+			sum+=5;
+		}
+		if((arr[i]%4==0) && (arr[i]%6==0))
+		{
+			sum+=4;
+		}
+		if(arr[i]%2==0){
+			sum+=3;
+		}
+		array_sum[i] = sum; 
+		sum = 0;
+	}
+	
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n-1-i;j++){
+			if(array_sum[j] >= array_sum[j+1]){
+				int temp = array_sum[j];
+				int temp1 = arr[j];
+				array_sum[j] = array_sum[j+1];
+				arr[j] = arr[j+1];
+				array_sum[j+1] = temp;
+				arr[j+1] = temp1;
+			}
+		}
+	}
+	
+	for(int i=n-1;i>=0;i--){
+		printf("%d ",array_sum[i]);
+	}
+	return 0;
+}
+
+//zoho2
+#include<stdio.h>
+int main(){
+	int n,i,count[100]={0};
+	printf("enter n numbers : ");
+	scanf("%d",&n);
+	int arr[n];
+	for(int i=0;i<n;i++)
+	scanf("%d",&arr[i]);
+	
+	for(int i=0;i<n;i++){
+		count[arr[i]]++;
+	}
+	
+//	for(int i=0;i<n;i++)
+//	printf("%d ",count[arr[i]]);
+	
+	for(int i=0;i<n;i++){
+		for(int j=i+1;j<n;j++){
+			if(count[arr[i]]<=count[arr[j]]){
+				int temp = count[arr[i]];
+				count[arr[i]] = count[arr[j]];
+				count[arr[j]] = temp;
+			}
+		}
+	}
+	
+	for(int i=0;i<n;i++)
+	printf("%d ",count[arr[i]]);
+	
+	
+	return 0;
+}
+
+//zoho3
+#include<stdio.h>
+int main(){
+	int n,m,count =0;
+	printf("enter total students and staff expected students : ");
+	scanf("%d%d",&n,&m);
+	int arr[n];
+	for(int i=0;i<n;i++){
+	scanf("%d",&arr[i]);
+	if(arr[i]<=0)
+	count++;
+}
+
+if(count>=m)
+printf("yes");
+else
+printf("no");
+	return 0;
+}
+
+//zoho4
+#include<stdio.h>
+#include<stdlib.h>
+
+int findlong(int arr[],int n){
+	int l=1;
+	int long_cosecutive_number=1;
+	int i;
+	
+	for(int i=0;i<n;i++){
+		for(int j=i+1;j<n;j++){
+			if(arr[i]>arr[j]){
+				int temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+		}
+	}
+	
+	for(int i=0;i<n;i++){
+		if(arr[i]==arr[i+1])
+		continue;
+		else if(arr[i]+1  == arr[i+1])
+		l++;
+		else
+		l=1;
+		
+		long_cosecutive_number = (long_cosecutive_number > l) ? long_cosecutive_number : l ;
+	}
+	return long_cosecutive_number;
+	
+}
+int main(){
+	int n;
+	printf("enter n numbers : ");
+	scanf("%d",&n);
+	int arr[n];
+	for(int i=0;i<n;i++)
+	scanf("%d",&arr[i]);
+	
+	int long_cosecutive_number = findlong(arr,n);
+	printf("%d ",long_cosecutive_number);
+	return 0;
+}
+
+//zoho5
+#include<stdio.h>
+int main(){
+	int m,n,i,j;
+	printf("enter rows and colums : ");
+	scanf("%d%d",&m,&n);
+	int arr[n][m];
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n;j++){
+			scanf("%d",&arr[i][j]);
+		}
+	}
+	
+	int arr2[i][j] = arr[i][j];
+	
+	for(int i=0;i<n;i++){
+		for(int j=0;j<m;j++){
+			if(arr[i][j]==1){
+				arr2[i][j] = 
+			}
+			else if(arr[i][j]==0){
+				arr2[i][j] = 0;
+			}
+		}
+	}
+	return 0;
+}
+
+//zoho6
+
+#include<stdio.h>
+int main(){
+	int n,x=3,count=0,ans=0;
+	scanf("%d",&n);
+	int arr[n];
+	for(int i=0;i<n;i++)
+	scanf("%d",&arr[i]);
+	
+	for(int i=0;i<n-1;i++){
+		ans=arr[i];
+		for(int j=i+1;j<n;j++){
+			ans+=arr[j];
+			if(ans%x==0){
+				count++;
+			}
+			
+			ans=arr[i];
+		}
+	}
+	
+	for(int i=0;i<n-1;i++){
+		for(int j=i+1;j<n-1;j++){
+			for(int k=j+1;k<n;k++){
+				ans+=arr[i]+arr[j]+arr[k];
+				if(ans%x==0)
+				{
+					count++;
+				}
+				ans=arr[i]+arr[j];
+			}
+		}
+	}
+	printf("%d ",count);
+	return 0;
+}
